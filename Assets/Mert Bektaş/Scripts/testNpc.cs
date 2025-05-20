@@ -8,4 +8,20 @@ public class testNpc : MonoBehaviour
     {
         UIManager.Instance.ShowNPCInfo(data);
     }
+
+    private void OnTriggerEnter(Collider other)
+{
+    if (CompareTag("Player"))
+    {
+        UIManager.Instance.ShowNPCInfo(data);
+    }
+}
+
+private void OnTriggerExit(Collider other)
+{
+    if (CompareTag("Player"))
+    {
+        UIManager.Instance.HideNPCInfo();
+    }
+}
 }
