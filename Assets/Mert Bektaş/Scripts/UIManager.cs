@@ -6,10 +6,11 @@ public class UIManager : MonoBehaviour
 {
 public static UIManager Instance;
 
-    [Header("PANEL 1 UI References")]
+    [Header("UI References")]
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI idText;
     public GameObject npcPanel;
+    public TestData currentData;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public static UIManager Instance;
 
     public void ShowNPCInfo(TestData data)
     {
+        currentData = data;
         nameText.text = data.name;
         idText.text = data.npcID;
         npcPanel.SetActive(true);
@@ -26,6 +28,7 @@ public static UIManager Instance;
 
     public void HideNPCInfo()
     {
+        currentData = null;
         npcPanel.SetActive(false);
     }
 }

@@ -1,8 +1,9 @@
-using UnityEngine;
+    using UnityEngine;
 
-public class testNpc : MonoBehaviour
+    public class testNpc : MonoBehaviour
 {
     public TestData data;
+    
 
     public void CLICKME()
     {
@@ -10,18 +11,20 @@ public class testNpc : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-{
-    if (CompareTag("Player"))
     {
-        UIManager.Instance.ShowNPCInfo(data);
+        if (CompareTag("Player"))
+        {
+            UIManager.Instance.ShowNPCInfo(data);
+            //Debug.Log(data.isOkay);
+        }
     }
-}
 
-private void OnTriggerExit(Collider other)
-{
-    if (CompareTag("Player"))
+    private void OnTriggerExit(Collider other)
     {
-        UIManager.Instance.HideNPCInfo();
+        if (CompareTag("Player"))
+        {
+            UIManager.Instance.HideNPCInfo();
+            
+        }
     }
-}
 }
