@@ -1,8 +1,8 @@
     using UnityEngine;
 
-    public class testNpc : MonoBehaviour
+    public class Npc : MonoBehaviour
 {
-    public TestData data;
+    public NpcData data;
     
 
     public void CLICKME()

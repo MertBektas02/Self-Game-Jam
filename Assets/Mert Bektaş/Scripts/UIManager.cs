@@ -10,7 +10,7 @@ public static UIManager Instance;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI idText;
     public GameObject npcPanel;
-    public TestData currentData;
+    public NpcData currentData;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public static UIManager Instance;
         else Destroy(gameObject);
     }
 
-    public void ShowNPCInfo(TestData data)
+    public void ShowNPCInfo(NpcData data)
     {
         currentData = data;
         nameText.text = data.name;

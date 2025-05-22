@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class TestData
+public class NpcData
 {
     public string npcID;
     public string name;
