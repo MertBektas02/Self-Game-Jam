@@ -14,9 +14,9 @@ public class SendManager : MonoBehaviour
             Debug.Log(data.isOkay);
             Debug.Log(data.name);
         }
-        if (data!=null && !data.isOkay)
+        if (data!=null && !data.isOkay)// yanlış kişiyi kişiyi geçirirsen 
         {
-            LoseTime(10);
+            LoseTime(20);
         }
     }
 
@@ -26,9 +26,12 @@ public class SendManager : MonoBehaviour
         if (data != null && !data.isOkay)
         {
             Debug.Log(data.isOkay);
-            Debug.Log(data.name);
+            Debug.Log("Npc ismi : "+data.name);
 
-
+        }
+         if (data!=null && data.isOkay) //doğru kişiyi geçirmezsen
+        {
+            LoseTime(20);
         }
     }
 
