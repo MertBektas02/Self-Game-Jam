@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CallManager : MonoBehaviour
 {
+    public static CallManager Instance { get; private set; }
     [SerializeField] private List<GameObject> npcList; 
     [SerializeField] private Transform triggerPosition; 
 
@@ -12,10 +13,6 @@ public class CallManager : MonoBehaviour
     public event OnAllNpcsCalled _OnAllNpcsCalled;
     [SerializeField] private IsNpcOnScreen screenChecker;
 
-  
-
-
-
     private void Start()
     {
         availableNpcs = new List<GameObject>(npcList);
@@ -24,14 +21,16 @@ public class CallManager : MonoBehaviour
 
 
 
+
     public void CallRandomNpc()
     {
         if (screenChecker.isNpcOnScreen) return;
-        
+
         GameObject selectedNPC = GetRandomNpc();
 
         if (selectedNPC != null && triggerPosition != null)
         {
+
             selectedNPC.transform.position = triggerPosition.position;
         }
     }

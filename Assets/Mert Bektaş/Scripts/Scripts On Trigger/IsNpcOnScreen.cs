@@ -8,6 +8,7 @@ public class IsNpcOnScreen : MonoBehaviour
     {
         if (other.CompareTag("Npc"))
         {
+            //Debug.Log("triggered");
             isNpcOnScreen = true;
         }
     }
@@ -16,6 +17,7 @@ public class IsNpcOnScreen : MonoBehaviour
     {
         if (other.CompareTag("Npc"))
         {
+            Debug.Log("exit happened");
             isNpcOnScreen = false;
             
         }
