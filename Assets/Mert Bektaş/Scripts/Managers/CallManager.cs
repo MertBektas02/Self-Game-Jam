@@ -1,17 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CallManager : MonoBehaviour
 {
     public static CallManager Instance { get; private set; }
-    [SerializeField] private List<GameObject> npcList; 
-    [SerializeField] private Transform triggerPosition; 
+    [SerializeField] private List<GameObject> npcList;
+    [SerializeField] private Transform triggerPosition;
 
     private List<GameObject> availableNpcs = new List<GameObject>();
 
-    public delegate void OnAllNpcsCalled();
-    public event OnAllNpcsCalled _OnAllNpcsCalled;
+    //public delegate void OnAllNpcsCalled();
+    //public event OnAllNpcsCalled _OnAllNpcsCalled; //event kullanmamaya karar verdim. 
     [SerializeField] private IsNpcOnScreen screenChecker;
+    [SerializeField] private GameObject winPanel;
 
     private void Start()
     {
@@ -54,9 +56,14 @@ public class CallManager : MonoBehaviour
         //win condiition
         if (availableNpcs.Count == 0)
         {
-            _OnAllNpcsCalled?.Invoke();
+            ToggleWinUI();
         }
 
         return selectedNPC;
+    }
+
+    public void ToggleWinUI()
+    {
+        winPanel.SetActive(!winPanel.activeSelf);
     }
 }
