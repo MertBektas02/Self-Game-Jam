@@ -4,7 +4,13 @@ using UnityEngine;
 public class NpcData
 {
     public string npcID;
-    public string name;
+    public string npcCountry;
+    public string npcName;
+    public string salary;
+    public string npcJob;
+    public string npcPurposeDialog;
+
+
     public bool isOkay;
     
 }

@@ -4,9 +4,14 @@ using UnityEngine.UI;
 
 public class SendManager : MonoBehaviour
 {
+    public GameObject losePanel;
     public Image GameOverBar;
     public float barAmount = 100f;
 
+    void Update()
+    {
+        LoseGame();// I get lazy:(
+    }
     // public void Send()
     // {
     //     var data = UIManager.Instance.currentData;
@@ -33,16 +38,16 @@ public class SendManager : MonoBehaviour
 
 
     // }
-        public void Send()
+    public void Send()
     {
         var data = UIManager.Instance.currentData;
         GameObject npc = CurrentNpc.Instance.currentNpc;
         Animator animator = npc.GetComponent<Animator>();
-        
+
         if (data != null && data.isOkay)// doğru kişiyi geçirirsen
         {
-            Debug.Log(data.isOkay);
-            Debug.Log(data.name);
+            //Debug.Log(data.isOkay);
+            //Debug.Log(data.name);
             animator.SetTrigger("NpcApproved");
         }
         else if (data != null && !data.isOkay)// YANLIŞ kişiyi geçirirsen
@@ -55,16 +60,21 @@ public class SendManager : MonoBehaviour
 
     public void DontSend()
     {
+        GameObject npc = CurrentNpc.Instance.currentNpc;
+        Animator animator = npc.GetComponent<Animator>();
         var data = UIManager.Instance.currentData;
-        if (data != null && !data.isOkay)// yanlış kişiyi geçirmezsen
+
+        if (data != null && !data.isOkay)// yanlış kişiyi reddedersen
         {
-            Debug.Log(data.isOkay);
-            Debug.Log("Npc ismi : " + data.name);
+            //Debug.Log(data.isOkay);
+            animator.SetTrigger("NpcDenied");
+
 
         }
-        else if (data != null && data.isOkay) //yanlış kişiyi geçirirsen
+        else if (data != null && data.isOkay) //doğru kişiyi reddedersen
         {
             LoseTime(20);
+            animator.SetTrigger("NpcDenied");
         }
     }
 
@@ -78,5 +88,13 @@ public class SendManager : MonoBehaviour
         barAmount += fillAmount;
         barAmount = Mathf.Clamp(barAmount, 0, 100);
         GameOverBar.fillAmount = barAmount / 100f;
+    }
+
+    public void LoseGame()
+    {
+        if (barAmount<=0f)
+        {
+            losePanel.SetActive(!losePanel.activeSelf);
+        }
     }
 }

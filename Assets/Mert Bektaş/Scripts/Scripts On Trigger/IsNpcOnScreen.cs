@@ -17,7 +17,7 @@ public class IsNpcOnScreen : MonoBehaviour
     {
         if (other.CompareTag("Npc"))
         {
-            Debug.Log("exit happened");
+            //Debug.Log("exit happened");
             isNpcOnScreen = false;
             
         }

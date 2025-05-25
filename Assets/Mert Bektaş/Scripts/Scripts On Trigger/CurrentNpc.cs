@@ -17,7 +17,7 @@ public static CurrentNpc Instance { get; private set; }
         if (other.CompareTag("Npc"))
         {
             currentNpc = other.gameObject;
-            Debug.Log("trigger aktif" + currentNpc);
+            //Debug.Log("trigger aktif" + currentNpc);
         }
     }
     private void OnTriggerExit(Collider other)
