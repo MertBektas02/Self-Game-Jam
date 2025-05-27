@@ -37,9 +37,10 @@ public class ButtonJobs : MonoBehaviour
 
     public void ToggleInfoTwoPanel()
     {
-        infoOnePanel.SetActive(!infoTwoPanel.activeSelf);
-        if (infoOnePanel.activeSelf)
-        infoOnePanel.transform.SetAsLastSibling();
+        infoTwoPanel.SetActive(!infoTwoPanel.activeSelf);
+
+        // if (infoOnePanel.activeSelf)
+        // infoOnePanel.transform.SetAsLastSibling();
     }
     public void ToggleInfoThreePanel()
     {

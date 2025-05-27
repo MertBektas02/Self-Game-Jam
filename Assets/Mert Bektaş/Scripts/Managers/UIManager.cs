@@ -8,14 +8,20 @@ public static UIManager Instance;
 
     [Header("UI References")]
     //public GameObject npcPanel;
-    public TextMeshProUGUI nameText;
     public TextMeshProUGUI idText;
-   
+    public TextMeshProUGUI nameText;
     public TextMeshProUGUI npcCountryText;
     public TextMeshProUGUI npcJob;
+    public TextMeshProUGUI npcSalary;
     public TextMeshProUGUI npcExperienceText;
     public TextMeshProUGUI npcEducation;
     public TextMeshProUGUI jobLevelText;
+    
+   
+ 
+    
+    
+  
     public TextMeshProUGUI ncpDialog;
     public NpcData currentData;
     public Image idPhoto; 
@@ -30,15 +36,23 @@ public static UIManager Instance;
     public void ShowNPCInfo(NpcData data)
     {
         currentData = data;
-        nameText.text = data.name;
         idText.text = data.npcID;
+        
+        nameText.text = data.name;
         npcCountryText.text = data.npcCountry;
         npcJob.text = data.npcJob;
-        
-        
+        npcSalary.text = data.salary;
         npcExperienceText.text = data.experienceYears;
         npcEducation.text = data.npcEducation;
         jobLevelText.text = data.jobLevel;
+       
+        
+        
+        
+        
+        
+        
+        
         idPhoto.sprite = data.photo;
 
         ncpDialog.text = data.npcPurposeDialog;

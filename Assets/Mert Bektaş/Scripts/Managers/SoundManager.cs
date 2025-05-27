@@ -11,21 +11,31 @@ public enum SoundType
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] SoundList;
-   private static SoundManager instance;
-   private AudioSource audioSource;
+    private static SoundManager instance;
+    private AudioSource audioSource;
 
     private void Awake()
     {
-        instance=this;
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
-        audioSource=GetComponent<AudioSource>();
-        PlaySound(SoundType.BACKGORUND);
+        audioSource = GetComponent<AudioSource>();
+        PlayBackgroundMusic();
     }
 
-    public static void PlaySound(SoundType sound, float volume=1f)
-   {
+    public static void PlaySound(SoundType sound, float volume = 1f)
+    {
         instance.audioSource.PlayOneShot(instance.SoundList[(int)sound]);
-   }
+    }
+   
+
+       public static void PlayBackgroundMusic()
+    {
+        instance.audioSource.clip = instance.SoundList[(int)SoundType.BACKGORUND];
+        instance.audioSource.loop = true;
+        instance.audioSource.volume = 1f; // veya istediğin seviye
+        instance.audioSource.Play();
+    }
 }

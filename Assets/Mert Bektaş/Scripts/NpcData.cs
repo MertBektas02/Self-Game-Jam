@@ -1,4 +1,4 @@
-using Microsoft.Unity.VisualStudio.Editor;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class NpcData
 {
     public string npcID;
-    public string npcCountry;
     public string name;
-    public string salary;
+    public string npcCountry;
     public string npcJob;
+    public string salary;
     public string experienceYears;
     public string npcEducation;
     public string jobLevel;
